@@ -1,0 +1,16 @@
+<TextInput
+									placeholder=" Enter Roll No"
+									style={{
+										height: 50,
+										width: 200,
+										borderRadius: 25,
+										fontSize: 16,
+										marginHorizontal: 25,
+										backgroundColor: '#DDDDDD',
+										paddingLeft: 25,
+										marginTop: 16,
+										color: 'white'
+									}}
+									keyboardType="number-pad"
+									onKeyPress={this.keyhandler}
+								/>
