@@ -316,12 +316,12 @@ class take extends Component {
 						style={{
 							justifyContent: 'center',
 							alignItems: 'center',
-							height: 400,
-							width: screensize.width - 80,
-							borderRadius: 20,
-							elevation: 5,
-							backgroundColor:'#363636',
-							opacity:50
+							// height: 400,
+							// width: screensize.width - 80,
+							// borderRadius: 20,
+							 elevation: 5,
+							 backgroundColor:'#DDDDDD',
+							 opacity:20
 						}}
 						position={'center'}
 					>
@@ -709,15 +709,16 @@ const styles = StyleSheet.create({
 	button2: {
 		width: 60,
 		height: 60,
-		elevation: 5,
+		elevation: 10,
 		backgroundColor: 'white',
-		marginHorizontal: 3,
-		marginVertical: 3
+		marginHorizontal: 5,
+		marginVertical: 5,
+		borderRadius:30
 	},
 	text2: {
 		color: 'black',
 		fontSize: 40,
 		textAlign: 'center',
-		paddingVertical: 10
+		paddingVertical: 8
 	}
 });
