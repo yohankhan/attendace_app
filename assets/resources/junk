@@ -14,3 +14,673 @@
 									keyboardType="number-pad"
 									onKeyPress={this.keyhandler}
 								/>
+								<Text style={styles.input3}>{this.state.currentRoll}</Text>
+								<View style={{ flexDirection: 'column' }}>
+									<View style={{ flexDirection: 'row' }}>
+										<TouchableOpacity style={styles.button2} onPress={this.pressed1}>
+											<Text style={styles.text2}>1</Text>
+										</TouchableOpacity>
+										<TouchableOpacity style={styles.button2} onPress={this.pressed2}>
+											<Text style={styles.text2}>2</Text>
+										</TouchableOpacity>
+										<TouchableOpacity style={styles.button2} onPress={this.pressed3}>
+											<Text style={styles.text2}>3</Text>
+										</TouchableOpacity>
+									</View>
+									<View style={{ flexDirection: 'row' }}>
+										<TouchableOpacity style={styles.button2} onPress={this.pressed4}>
+											<Text style={styles.text2}>4</Text>
+										</TouchableOpacity>
+										<TouchableOpacity style={styles.button2} onPress={this.pressed5}>
+											<Text style={styles.text2}>5</Text>
+										</TouchableOpacity>
+										<TouchableOpacity style={styles.button2} onPress={this.pressed6}>
+											<Text style={styles.text2}>6</Text>
+										</TouchableOpacity>
+									</View>
+									<View style={{ flexDirection: 'row' }}>
+										<TouchableOpacity style={styles.button2} onPress={this.pressed7}>
+											<Text style={styles.text2}>7</Text>
+										</TouchableOpacity>
+										<TouchableOpacity style={styles.button2} onPress={this.pressed8}>
+											<Text style={styles.text2}>8</Text>
+										</TouchableOpacity>
+										<TouchableOpacity style={styles.button2} onPress={this.pressed9}>
+											<Text style={styles.text2}>9</Text>
+										</TouchableOpacity>
+									</View>
+									<View style={{ flexDirection: 'row' }}>
+										<TouchableOpacity style={styles.button2} onpress={this.presseclear}>
+											<Text style={styles.text2}>CE</Text>
+										</TouchableOpacity>
+										<TouchableOpacity style={styles.button2} onPress={this.pressed0}>
+											<Text style={styles.text2}>0</Text>
+										</TouchableOpacity>
+										<TouchableOpacity style={styles.button2}>
+											<Text style={styles.text2}>OK</Text>
+										</TouchableOpacity>
+									</View>
+								</View>
+								<View style={styles.button2}>
+									<TouchableOpacity onPress={this.uploadhandler}>
+										<Text style={{ fontSize: 20, color: 'black' }}>upload</Text>
+									</TouchableOpacity>
+								</View>
+							</View>
+								pressed1 = () => {
+		temp += '1';
+		this.setState({
+			currentRoll: temp
+		});
+	};
+
+	pressed2 = () => {
+		temp += '2';
+		this.setState({
+			currentRoll: temp
+		});
+	};
+
+	pressed3 = () => {
+		temp += '3';
+		this.setState({
+			currentRoll: temp
+		});
+	};
+
+	pressed4 = () => {
+		temp += '4';
+		this.setState({
+			currentRoll: temp
+		});
+	};
+	pressed5 = () => {
+		temp += '5';
+		this.setState({
+			currentRoll: temp
+		});
+	};
+	pressed6 = () => {
+		temp += '6';
+		this.setState({
+			currentRoll: temp
+		});
+	};
+	pressed7 = () => {
+		temp += '7';
+		this.setState({
+			currentRoll: temp
+		});
+	};
+	pressed8 = () => {
+		temp += '8';
+		this.setState({
+			currentRoll: temp
+		});
+	};
+	pressed9 = () => {
+		temp += '9';
+		this.setState({
+			currentRoll: temp
+		});
+	};
+	pressed0 = () => {
+		temp += '0';
+		this.setState({
+			currentRoll: temp
+		});
+	};
+
+	presseclear = () => {
+		this.setState({
+			currentRoll: ' '
+		});
+	};
+
+	okfunction = () => {
+		presentroll += this.state.currentRoll;
+		this.setState({
+			currentRoll: ' '
+		});
+	};
+
+	uploadhandler = () => {
+		this.refs.modal1.close();
+		this.refs.modal2.open();
+	};
+	{/* <Modal
+						ref={'modal2'}
+						style={{
+							justifyContent: 'center',
+							alignItems: 'center',
+							height: 400,
+							width: screensize.width - 80,
+							elevation: 5,
+							opacity: 20
+						}}
+						position={'center'}
+						swipeToClose={false}
+					>
+						<View style={{ flex: 1, flexDirection: 'column', alignItems: 'center' }}>
+							<Text
+								style={{
+									color: 'black',
+									fontSize: 20,
+									fontWeight: 'bold'
+								}}
+							>
+								SUBJECT : {this.state.item}
+							</Text>
+							<Text
+								style={{
+									color: 'black',
+									fontSize: 20,
+									fontWeight: 'bold'
+								}}
+							>
+								CLASS : {this.state.class}
+							</Text>
+							<Text
+								style={{
+									color: 'black',
+									fontSize: 20,
+									fontWeight: 'bold'
+								}}
+							>
+								STUDENT PRESENT
+							</Text>
+							<View style={{ justifyContent: 'center', margin: 10 }}>
+								<FlatList
+									data={this.state.presentroll}
+									renderItem={({ item }) => (
+										<Text style={{ padding: 10, fontSize: 18, height: 44 }}> {item} </Text>
+									)}
+								/>
+							</View>
+						</View>
+					</Modal> */}
+
+						handleViewRef = (ref) => (this.view = ref);
+	handleTextRef = (ref) => (this.text = ref);
+
+	fade = () => {
+		this.view.transitionTo({ opacity: 0 });
+		this.text.transitionTo({ opacity: 1 });
+	};
+					<View style={{ position: 'absolute', top: 200, left: 170 }}>
+					<Animatable.View
+						ref={this.handleViewRef}
+						style={{ width: 50, height: 50, backgroundColor: 'black' }}
+					/>
+				</View>
+				<View style={{ position: 'absolute', top: 200, left: 200 }}>
+					<Animatable.Text ref={this.handleTextRef} style={{ color: 'black', opacity: 0 }}>
+						Fade me!
+					</Animatable.Text>
+				</View>
+				<View style={{ justifyContent: 'center', alignContent: 'center' }}>
+					<Button onPress={this.fade} title="fade" />
+				</View>
+				{/* <TextInput
+						placeholder="xx-xx-xxxx"
+						style={styles.input1}
+						onChangeText={(asked_dat) => this.setState({ asked_dat })}
+					/>
+					<TextInput
+						placeholder="CLASS"
+						style={styles.input1}
+						autoCapitalize="characters"
+						onChangeText={(asked_clas) => this.setState({ asked_clas })}
+					/>
+					<TextInput
+						placeholder="SUBJECT"
+						style={styles.input1}
+						autoCapitalize="characters"
+						onChangeText={(asked_su) => this.setState({ asked_su })}
+					/>
+					<Button onPress={this.retrieve_data} title="GET DATA" /> */}
+
+
+
+					class take extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			date: '',
+			isOpen: false,
+			isDisabled: false,
+			sliderValue: 0.3,
+			currentRoll: '',
+			presentroll: []
+		};
+	}
+	componentDidMount() {
+		var that = this;
+		var d = new Date().getDate();
+		var month = new Date().getMonth();
+		var year = new Date().getFullYear();
+
+		that.setState({
+			date: 'Date : ' + d + '/' + month + '/' + year
+		});
+	}
+
+	_menu = null;
+
+	setMenuRef = (ref) => {
+		this._menu = ref;
+	};
+
+	showMenu = () => {
+		this._menu.show();
+	};
+	m1 = () => {
+		this.setState({
+			item: 'OOPC'
+		});
+		this._menu.hide();
+	};
+
+	m2 = () => {
+		this.setState({
+			item: 'DFS'
+		});
+		this._menu.hide();
+	};
+
+	m3 = () => {
+		this.setState({
+			item: 'AEM'
+		});
+		this._menu.hide();
+	};
+	m4 = () => {
+		this.setState({
+			item: 'CN'
+		});
+		this._menu.hide();
+	};
+	m5 = () => {
+		this.setState({
+			item: 'DE'
+		});
+		this._menu.hide();
+	};
+
+	_menu2 = null;
+
+	setMenu2Ref = (ref2) => {
+		this._menu2 = ref2;
+	};
+
+	showMenu2 = () => {
+		this._menu2.show();
+	};
+
+	c1 = () => {
+		this.setState({
+			class: 'COMPUTER'
+		});
+		this._menu2.hide();
+		this.refs.modal1.open();
+	};
+
+	c2 = () => {
+		this.setState({
+			class: 'IT'
+		});
+		this._menu2.hide();
+		this.refs.modal1.open();
+	};
+
+	submithandler = () => {
+		var new_Roll = this.state.currentRoll;
+		var array_roll = this.state.presentroll;
+		array_roll.push(new_Roll);
+		this.setState({
+			presentroll: array_roll,
+			currentRoll: ''
+		});
+	};
+
+	m1closem2open = () => {
+		this.refs.modal1.close();
+		Alert.alert(this.state.date + ' ' + this.state.class + ' ' + this.state.item + ' ' + this.state.presentroll);
+	};
+
+	addItem = (item) => {
+		var d = new Date().getDate();
+		var m = new Date().getMonth();
+		var y = new Date().getFullYear();
+
+		var current_date = d + '-' + m + '-' + y;
+
+		var current_class = '/' + this.state.class + '/';
+
+		var current_sub_name = this.state.item;
+
+		db.ref('ATTENDANCE LOGS' + '/' + current_date + current_class + current_sub_name).set({
+			PRESENT_ROLL_NO: item
+		});
+	};
+
+	upload = () => {
+		this.addItem(this.state.presentroll);
+		Alert.alert('saved');
+	};
+
+	render() {
+		return (
+			<View style={{ backgroundColor: '#6ebdff' }}>
+				<View style={{ position: 'absolute', top: 25, left: 35 }}>
+					<Text style={styles.mainText}>Welcome,</Text>
+				</View>
+				<View
+					style={{
+						paddingTop: 90,
+						flex: 1,
+						alignItems: 'center',
+						flexDirection: 'column'
+					}}
+				>
+					<Text style={styles.mainText}>{this.state.date}</Text>
+					<View style={{ paddingTop: 15 }}>
+						<Menu
+							ref={this.setMenuRef}
+							button={
+								<Icon onPress={this.showMenu} name="ios-menu" size={50} color="white" raised={true} />
+							}
+						>
+							<MenuItem onPress={this.m1}>OOPC</MenuItem>
+							<MenuItem onPress={this.m2}>DFS</MenuItem>
+							<MenuItem onPress={this.m3}>AEM</MenuItem>
+							<MenuItem onPress={this.m4}>CN</MenuItem>
+							<MenuItem onPress={this.m5}>DE</MenuItem>
+						</Menu>
+					</View>
+					<View style={{ paddingTop: 15 }}>
+						<Menu
+							ref={this.setMenu2Ref}
+							button={
+								<Icon
+									onPress={this.showMenu2}
+									name="logo-buffer"
+									size={50}
+									color="white"
+									raised={true}
+								/>
+							}
+						>
+							<MenuItem onPress={this.c1}>COMPUTER</MenuItem>
+							<MenuItem onPress={this.c2}>IT</MenuItem>
+						</Menu>
+					</View>
+				</View>
+
+				<Modal
+					ref={'modal1'}
+					style={{
+						justifyContent: 'center',
+						alignItems: 'center',
+						height: 400,
+						width: screensize.width - 80,
+						borderRadius: 20,
+						elevation: 5,
+						backgroundColor: 'white',
+						opacity: 20
+					}}
+					position={'center'}
+					swipeToClose={false}
+				>
+					<KeyboardAvoidingView behavior="position">
+						<View style={{ alignItems: 'center', justifyContent: 'center' }}>
+							<View
+								style={{
+									backgroundColor: 'black',
+									borderRadius: 15,
+									elevation: 10,
+									height: 90,
+									width: 180
+								}}
+							>
+								<Text style={styles.text2}>SUBJECT: {this.state.item}</Text>
+								<Text style={styles.text2}>CLASS : {this.state.class}</Text>
+							</View>
+							<TextInput
+								blurOnSubmit={false}
+								placeholder=" Enter Roll No"
+								style={{
+									height: 50,
+									width: 200,
+									borderRadius: 25,
+									fontSize: 16,
+									marginHorizontal: 25,
+									backgroundColor: 'black',
+									paddingLeft: 25,
+									marginTop: 16,
+									color: 'white'
+								}}
+								keyboardType="number-pad"
+								onChangeText={(currentRoll) => this.setState({ currentRoll })}
+								value={this.state.currentRoll}
+								onSubmitEditing={this.submithandler}
+							/>
+							<View style={{ marginHorizontal: 25 }}>
+								<TouchableOpacity onPress={this.m1closem2open}>
+									<Icon name="logo-dropbox" size={70} />
+								</TouchableOpacity>
+							</View>
+						</View>
+					</KeyboardAvoidingView>
+				</Modal>
+
+				<View
+					style={{
+						position: 'absolute',
+						bottom: 60,
+						right: 40
+					}}
+				>
+					<Icon name="md-cloud-upload" size={80} onPress={this.upload} color="#8cf1eb" />
+				</View>
+			</View>
+		);
+	}
+}
+
+class view extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			day: '',
+			month: '',
+			year: '',
+			asked_dat: '',
+			asked_clas: 'CLASS',
+			asked_su: 'SUBJECT'
+		};
+	}
+
+	set_date = () => {
+		this.setState({
+			asked_dat: this.state.day + '-' + this.state.month + '-' + this.state.year
+		});
+	};
+	retrieve_data = () => {
+		var asked_date = 'ATTENDANCE LOGS' + '/' + this.state.asked_dat;
+		var asked_class = this.state.asked_clas + '/';
+		var asked_sub = this.state.asked_su;
+		var date_class = asked_date + '/' + asked_class;
+		var sub_roll = asked_sub + '/' + 'PRESENT_ROLL_NO';
+
+		console.log(date_class + sub_roll);
+
+		db.ref(date_class).once('value', function(snapshot) {
+			var roll_list = snapshot.child(sub_roll).val();
+			var mainlist = JSON.stringify(roll_list);
+			var new_mainlist = mainlist.replace('"', '');
+			Alert.alert('Present Roll No', new_mainlist);
+		});
+	};
+
+	_menu = null;
+	_menu2 = null;
+
+	setMenuRef = (ref) => {
+		this._menu = ref;
+	};
+
+	setMenu2Ref = (ref2) => {
+		this._menu2 = ref2;
+	};
+
+	showMenu = () => {
+		this._menu.show();
+	};
+
+	showMenu2 = () => {
+		this._menu2.show();
+	};
+
+	c1 = () => {
+		this.setState({
+			asked_clas: 'COMPUTER'
+		});
+		this._menu.hide();
+	};
+	c2 = () => {
+		this.setState({
+			asked_clas: 'IT'
+		});
+		this._menu.hide();
+	};
+
+	m1 = () => {
+		this.setState({
+			asked_su: 'OOPC'
+		});
+		this._menu2.hide();
+	};
+
+	m2 = () => {
+		this.setState({
+			asked_su: 'DFS'
+		});
+		this._menu2.hide();
+	};
+
+	m3 = () => {
+		this.setState({
+			asked_su: 'AEM'
+		});
+		this._menu2.hide();
+	};
+	m4 = () => {
+		this.setState({
+			asked_su: 'CN'
+		});
+		this._menu2.hide();
+	};
+	m5 = () => {
+		this.setState({
+			asked_su: 'DE'
+		});
+		this._menu2.hide();
+	};
+
+	render() {
+		return (
+			<ImageBackground source={bg7} style={{ height: '100%', width: '100%' }} resizeMode="cover">
+				<View style={{ height: screensize.height - 60, width: screensize.width, marginTop: 60 }}>
+					<View style={{ flex: 1, flexDirection: 'column', margin: 30 }}>
+						<Menu
+							ref={this.setMenu2Ref}
+							button={
+								<TouchableOpacity onPress={this.showMenu2}>
+									<Text style={styles.mainTextV2}>SUBJECT : {this.state.asked_su}</Text>
+								</TouchableOpacity>
+							}
+						>
+							<MenuItem onPress={this.m1}>OOPC</MenuItem>
+							<MenuItem onPress={this.m2}>DFS</MenuItem>
+							<MenuItem onPress={this.m3}>AEM</MenuItem>
+							<MenuItem onPress={this.m4}>CN</MenuItem>
+							<MenuItem onPress={this.m5}>DE</MenuItem>
+						</Menu>
+						<Menu
+							ref={this.setMenuRef}
+							button={
+								<TouchableOpacity onPress={this.showMenu}>
+									<Text style={styles.mainTextV2}>CLASS : {this.state.asked_clas}</Text>
+								</TouchableOpacity>
+							}
+						>
+							<MenuItem onPress={this.c1}>COMPUTER</MenuItem>
+							<MenuItem onPress={this.c2}>IT</MenuItem>
+						</Menu>
+						<View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+							<Text style={styles.mainTextV2}>DATE:</Text>
+							<TextInput
+								placeholder="00"
+								style={{
+									height: 30,
+									width: 30,
+									fontSize: 16,
+									marginVertical: 5,
+									backgroundColor: 'white',
+
+									color: 'black',
+									fontWeight: 'bold'
+								}}
+								keyboardType="number-pad"
+								onChangeText={(day) => this.setState({ day })}
+								onSubmitEditing={this.set_date}
+							/>
+							<TextInput
+								placeholder="00"
+								style={{
+									height: 30,
+									width: 40,
+									fontSize: 16,
+									marginVertical: 5,
+									backgroundColor: 'white',
+									color: 'black',
+
+									fontWeight: 'bold'
+								}}
+								keyboardType="number-pad"
+								onChangeText={(month) => this.setState({ month })}
+								onSubmitEditing={this.set_date}
+							/>
+							<TextInput
+								placeholder="0000"
+								style={{
+									height: 30,
+									width: 50,
+									fontSize: 16,
+									marginVertical: 5,
+									backgroundColor: 'white',
+									color: 'black',
+
+									fontWeight: 'bold'
+								}}
+								keyboardType="number-pad"
+								onChangeText={(year) => this.setState({ year })}
+								onSubmitEditing={this.set_date}
+							/>
+						</View>
+					</View>
+				</View>
+				<View
+					style={{
+						position: 'absolute',
+						bottom: 90,
+						right: 40
+					}}
+				>
+					<Icon name="md-download" size={50} color="#8cf1eb" onPress={this.retrieve_data} />
+				</View>
+			</ImageBackground>
+		);
+	}
+}

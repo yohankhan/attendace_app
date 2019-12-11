@@ -1,0 +1,18 @@
+
+	componentDidMount(){
+		this.main_log_fetch();
+	}
+
+	main_log_entry = () => {
+		db.ref('ACTIVITY LOGS/' + 'MAIN').set({
+			logs: this.state.text
+		});
+	};
+
+	main_log_fetch = () => {
+		db.ref('ACTIVITY LOGS/' + 'MAIN').on('value', (snapshot) => {
+			this.setState({
+				current_main_log: snapshot.val()
+			});
+		});
+	};
